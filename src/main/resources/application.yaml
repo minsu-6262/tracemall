@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: tracemall
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/commerce_analytics
+    username: postgres
+    password: minsu159!
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+
+  main:
+    allow-bean-definition-overriding: true
