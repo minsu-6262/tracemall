@@ -3,17 +3,21 @@ package com.tracemall.user;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/users")
+@CrossOrigin(origins = "*")
 public class UserController {
 
-    private final UserRepository userRepository;
+    private final UserService userService;
 
-    @GetMapping
-    public List<User> getUsers() {
-        return userRepository.findAll();
+    @PostMapping("/signup")
+    public User signup(@RequestBody SignupRequest request) {
+        return userService.signup(request);
+    }
+
+    @PostMapping("/login")
+    public LoginResponse login(@RequestBody User user) {
+        return userService.login(user);
     }
 }

@@ -3,6 +3,8 @@ package com.tracemall.user;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.time.LocalDate;
+
 @Entity
 @Table(name = "users")
 @Getter
@@ -17,5 +19,12 @@ public class User {
 
     private String email;
     private String password;
-    private String role;
+
+    @Enumerated(EnumType.STRING)
+    private Role role;
+
+    private String gender;
+    private LocalDate birthDate;
+    private Integer point;
+
 }
